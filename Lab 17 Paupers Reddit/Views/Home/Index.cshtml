@@ -1,0 +1,41 @@
+﻿@using static Lab_17_Paupers_Reddit.Models.Pauper
+@model Pauper
+
+<h2>Pauper's Reddit</h2>
+<p>VIEW TOP 10 RESULTS</p>
+
+<form asp-action="DisplayPauper" asp-controller="Home" method="post">
+    <input type="text" name="s" value="" />
+    <br />
+    <input type="submit" value="Search" />
+    <br />
+</form>
+
+@{
+    //Gets the property of the pauper if not null
+    if (Model != null)
+    {
+        int i = 0;
+        //For every post, increase post until 10.
+        foreach (Child c in Model.data.children)
+        {
+            i++;
+            if (i > 10)
+            {
+                break;
+            }
+            var url = c.data.url;
+            //If a url contains: pull the data for that thumbnail.
+            if (!(url.Contains(".jpg") || url.Contains(".jpeg") || url.Contains(".png")))
+            {
+                url = c.data.thumbnail;
+            }
+            //Target: attribute signifies where to open a linked document
+            <div>
+                <h1>@i - <a target="_blank" href="https://www.reddit.com/@c.data.permalink">@c.data.title</a></h1>
+                <img src="@url" style="width:400px; height:auto" />
+            </div>
+        }
+    }
+    
+}
