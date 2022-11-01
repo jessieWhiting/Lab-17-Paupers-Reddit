@@ -18,7 +18,7 @@ namespace Lab_17_Paupers_Reddit.Controllers
         {
          //ModelState: Gets the Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary that contains
          //the state of the model and of model-binding validation.
-            if (!(string.IsNullOrEmpty(s) || !ModelState.IsValid))
+            if (string.IsNullOrEmpty(s) || ModelState.IsValid)
             {
                 var reddit = await pd.RedditFiles(s);
                 return View(reddit);
