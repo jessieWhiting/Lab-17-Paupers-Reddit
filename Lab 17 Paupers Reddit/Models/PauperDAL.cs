@@ -3,7 +3,7 @@
     public class PauperDAL
     {
         //Provides a class for sending HTTP requests and receiving HTTP responses from
-        //a resource identified by a URI.
+        //BaseClass: a resource identified by a URI(Uniform Resource Identifier) Similar to url.
         private HttpClient GetClient()
         {
             var client = new HttpClient();
@@ -12,7 +12,8 @@
         }
 
         //TResult:
-        //Specify that y using Asynchronous programming, the Application can continue with the other work that does not depend on the completion of the entire task.
+        //Specify that w/ using Asynchronous programming, the Application can continue with the other work that does not depend on the completion of the entire task.
+        //Async + await: 
         public async Task<Pauper> RedditFiles(string s)
         {
             var client = GetClient();

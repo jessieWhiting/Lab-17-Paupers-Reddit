@@ -20,16 +20,16 @@
                 break;
             }
             var url = c.data.url;
-            //If a url contains: pull the data for that thumbnail.
-            if (!(url.Contains(".jpg") || url.Contains(".png") || url.Contains(".jpeg")))
-            {
-                url = c.data.thumbnail;
-            }
+            //Pulls data from the thumbnail
+            url = c.data.thumbnail;
+           
             //Target: attribute signifies where to open a linked document
             <div>
-                <h1>@i - <a target="_blank" href="https://www.reddit.com/@c.data.permalink">@c.data.title</a></h1>            
+                <h1>@i - <a target="_blank" href="https://www.reddit.com/@c.data.permalink">@c.data.title</a></h1>
+                <br />
                 <img src="@url" style="width:400px; height:auto" />
-        </div>
+            </div>
+            <br />
         }
     }
 }
